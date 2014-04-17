@@ -19,6 +19,7 @@
                 });
 
                 $("#read").click(function () {
+                    alert("clickr");
                     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotReadFS, fail);
                 });
             }
