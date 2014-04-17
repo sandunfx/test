@@ -11,26 +11,29 @@
             document.addEventListener("deviceready", onDeviceReady, false);
 
             function onDeviceReady() {
-	            alert("dr");
-		
-                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-		
-		         alert("dr1");
+//	            alert("dr");
+//		
+//                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+//		
+                //		         alert("dr1");
+                $("#write").click(function () {
+                    alert("click");
+                });
             }
 
             function gotFS(fileSystem) {
-	            alert("fs");
+	            //alert("fs");
                 fileSystem.root.getFile("test.txt", null, gotFileEntry, fail);
-		        alert("fs1");
+		      //  alert("fs1");
             }
 
             function gotFileEntry(fileEntry) {
-	            alert("fs");
+	           // alert("fs");
                 fileEntry.file(gotFile, fail);
             }
 
             function gotFile(file){
-	            alert("gf");
+	          //  alert("gf");
                 readDataUrl(file);
                 readAsText(file);
             }
@@ -46,7 +49,7 @@
             }
 
             function readAsText(file) {
-	            alert("rT");
+	           // alert("rT");
                 var reader = new FileReader();
                 reader.onloadend = function(evt) {
                     console.log("Read as text");
@@ -57,8 +60,8 @@
             }
 
             function fail(error) {
-	            alert("f " + error);
-	            alert("f " + error.code.toString());
+	           // alert("f " + error);
+	           // alert("f " + error.code.toString());
             }
 
     </script>
@@ -66,6 +69,9 @@
     </head>
     
 	<body>
+
+        <input id="write" type="button" value="write" />
+        <input id="read" type="button" value="read" />
 
         <div id="content"></div>
 
